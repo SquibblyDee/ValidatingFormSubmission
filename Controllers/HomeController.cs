@@ -10,16 +10,20 @@ namespace ValidatingFormSubmission.Controllers
 {
     public class HomeController : Controller
     {
+        [HttpGet("")]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        [HttpPost("register")]
+        public IActionResult Register(FormData data)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            if(ModelState.IsValid)
+            {
+                return View("Register");
+            }
+            return View("Index");
         }
 
         public IActionResult Contact()
