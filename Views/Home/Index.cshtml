@@ -3,7 +3,7 @@
 }
 @model FormData
 <div class="OurForm">
-    <form asp-action="Register" asp-controller="Home" method="post">
+    <form asp-action="Process" asp-controller="Home" method="post">
         <div class="form-group">
             <label asp-for="FirstName"></label>
             <input asp-for="FirstName">
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label asp-for="Age"></label>
-            <input asp-for="Age">
+            <input asp-for="Age" value=0>
             <span asp-validation-for="Age"></span>
         </div>
         <div class="form-group">

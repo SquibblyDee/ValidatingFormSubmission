@@ -16,12 +16,12 @@ namespace ValidatingFormSubmission.Controllers
             return View();
         }
 
-        [HttpPost("register")]
-        public IActionResult Register(FormData data)
+        [HttpPost("process")]
+        public IActionResult Process(FormData data)
         {
             if(ModelState.IsValid)
             {
-                return View("Register");
+                return RedirectToAction("Register");
             }
             return View("Index");
         }
@@ -33,9 +33,9 @@ namespace ValidatingFormSubmission.Controllers
             return View();
         }
 
-        public IActionResult Error()
+        public IActionResult Register()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
     }
 }
